@@ -41,12 +41,10 @@ class UsersController < ApplicationController
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
     respond_to do |format|
       if @user.save
         #tell the UserMailer to send a welcome email after the save
-        UserMailer.welcome_email(@user).deliver
-
+        UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
