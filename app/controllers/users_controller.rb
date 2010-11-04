@@ -1,3 +1,4 @@
+
 class UsersController < ApplicationController
   # GET /users
   # GET /users.xml
@@ -43,6 +44,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     respond_to do |format|
       if @user.save
+        
         #tell the UserMailer to send a welcome email after the save
         UserMailer.registration_confirmation(@user).deliver
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }

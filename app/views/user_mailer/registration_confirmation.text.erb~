@@ -1,0 +1,7 @@
+Thank you for registering!
+
+Are the things from the fields:
+
+<%= @user.name %>
+
+<%= @user.email %>
